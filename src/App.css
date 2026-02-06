@@ -1,0 +1,10 @@
+main {
+  padding: 0;
+}
+
+/* Smooth scroll when using anchor links */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

@@ -1,0 +1,150 @@
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.hero-slider {
+  width: 100%;
+  height: 100vh;
+}
+
+.hero-slider .swiper-pagination {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.hero-slider .swiper-pagination-progressbar-fill {
+  background: #fff;
+  border-radius: 0 0 2px 0;
+}
+
+.hero-slider__slide {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 4rem 0 6rem;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Alinha com o header: mesmo container (max 1200px, centralizado) e padding */
+.hero-slider__slide-inner {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* Camada de fundo (imagem) com zoom lento */
+.hero-slider__slide-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero-slider__slide-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  animation: hero-bg-zoom 50s ease-in-out infinite alternate;
+}
+
+@keyframes hero-bg-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+/* Overlay em gradiente (teal da marca) para legibilidade do texto */
+.hero-slider__slide-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  /* 90deg: escuro à esquerda (lado do texto), transparente à direita */
+  background: linear-gradient(
+    90deg,
+    rgba(0, 124, 124, 0.92) 0%,
+    rgba(0, 124, 124, 0.5) 45%,
+    rgba(0, 124, 124, 0.12) 75%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Conteúdo alinhado à esquerda e embaixo */
+.hero-slider__slide-content {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  max-width: 560px;
+}
+
+.hero-slider__title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.hero-slider__subtitle {
+  margin: 0 0 var(--space-lg);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: 400;
+  opacity: 0.95;
+}
+
+.hero-slider__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  justify-content: flex-start;
+  margin-top: var(--space-lg);
+}
+
+/* CTA primário no hero: fundo branco para máximo contraste sobre o overlay teal */
+.hero-slider__cta.btn--primary {
+  background-color: #fff;
+  color: var(--color-primary);
+  border-color: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.hero-slider__cta.btn--primary:hover {
+  background-color: rgba(255, 255, 255, 0.95);
+  color: var(--color-primary-dark);
+  border-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* CTA secundário: borda branca forte e texto branco para contraste */
+.hero-slider__cta.btn--secondary {
+  color: #fff;
+  border-width: 2px;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.hero-slider__cta.btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  border-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}

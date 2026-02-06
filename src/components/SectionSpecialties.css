@@ -1,0 +1,57 @@
+.section-specialties {
+  background-color: var(--color-bg-alt);
+}
+
+.section-specialties.section {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+}
+
+.section-specialties__grid {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .section-specialties__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.specialty-card {
+  background: var(--color-bg);
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+}
+
+.specialty-card__icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: var(--space-md);
+}
+
+.specialty-card__icon {
+  width: 48px;
+  height: 48px;
+  color: var(--color-primary);
+}
+
+.specialty-card__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0 0 var(--space-sm);
+  letter-spacing: -0.02em;
+}
+
+.specialty-card__text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin: 0;
+}

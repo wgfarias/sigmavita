@@ -1,0 +1,216 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem 1.5rem;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    padding 0.3s ease;
+  animation: headerFadeIn 0.6s ease-out forwards;
+}
+
+@keyframes headerFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header--scrolled {
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.08);
+  padding: 0.5rem 1.5rem;
+}
+
+.header__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo-img {
+  height: 26px;
+  width: auto;
+  object-fit: contain;
+  transition: opacity 0.25s ease;
+}
+
+.header__logo-img--dark {
+  display: none;
+}
+
+.header__logo-img--white {
+  display: block;
+}
+
+.header--scrolled .header__logo-img--dark {
+  display: block;
+}
+
+.header--scrolled .header__logo-img--white {
+  display: none;
+}
+
+.header__nav {
+  display: none;
+}
+
+.header__links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Sobre o hero (fundo verde): links claros para contraste */
+.header__link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+  transition: color 0.2s ease;
+}
+
+.header__link:hover {
+  color: #fff;
+}
+
+/* Com header fixo branco (após scroll): links escuros */
+.header--scrolled .header__link {
+  color: var(--color-text);
+}
+
+.header--scrolled .header__link:hover {
+  color: var(--color-primary);
+}
+
+.header__cta {
+  margin-left: var(--space-sm);
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.header__mobile-cta {
+  margin-top: var(--space-sm);
+  width: 100%;
+  text-align: center;
+}
+
+.header__burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.header__burger:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.header--scrolled .header__burger:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.header__burger-line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 1px;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    background-color 0.2s ease;
+}
+
+.header--scrolled .header__burger-line {
+  background-color: var(--color-text);
+}
+
+.header--menu-open .header__burger-line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.header--menu-open .header__burger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.header--menu-open .header__burger-line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile menu */
+.header__mobile-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.header--menu-open .header__mobile-nav {
+  max-height: 400px;
+}
+
+.header__mobile-links {
+  padding: 1rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.header__mobile-link {
+  display: block;
+  padding: 0.75rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text);
+  border-radius: var(--radius-sm);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.header__mobile-link:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  color: var(--color-primary);
+}
+
+@media (min-width: 768px) {
+  .header__nav {
+    display: block;
+  }
+
+  .header__burger {
+    display: none;
+  }
+
+  .header__mobile-nav {
+    display: none;
+  }
+}

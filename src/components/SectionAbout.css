@@ -1,0 +1,69 @@
+.section-about {
+  background-color: var(--color-bg);
+}
+
+.section-about__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .section-about__layout {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.section-about__content {
+  max-width: 680px;
+}
+
+/* Container com imagem de fundo (consultório) à direita */
+.section-about__image-wrap {
+  position: relative;
+  min-height: 280px;
+}
+
+.section-about__image-box {
+  border-radius: var(--radius-lg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  aspect-ratio: 4 / 3;
+  min-height: 260px;
+}
+
+.section-about__logo {
+  position: absolute;
+  right: var(--space-md);
+  bottom: var(--space-md);
+  display: block;
+  width: 72px;
+  line-height: 0;
+}
+
+.section-about__logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
+}
+
+.section-about__lead {
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--color-text);
+  margin: 0 0 var(--space-md);
+}
+
+.section-about__text {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-xl);
+}
+
+.section-about__cta {
+  display: inline-flex;
+}

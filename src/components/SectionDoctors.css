@@ -1,0 +1,146 @@
+.section-doctors {
+  background-color: var(--color-bg);
+}
+
+/* Seção mais larga para aproveitar a tela e evitar espaço em branco à direita */
+.section-doctors .section__inner {
+  max-width: min(1400px, 96vw);
+}
+
+.section-doctors__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.doctor-card {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: start;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .doctor-card {
+    grid-template-columns: 260px 1fr;
+    gap: var(--space-2xl);
+  }
+
+  /* Foto sempre na coluna estreita, texto sempre na coluna larga (1fr) */
+  .doctor-card__media {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .doctor-card__content {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .doctor-card--right {
+    grid-template-columns: 1fr 260px;
+  }
+
+  .doctor-card--right .doctor-card__media {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .doctor-card--right .doctor-card__content {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
+
+.doctor-card__media {
+  position: relative;
+}
+
+.doctor-card__image-placeholder {
+  aspect-ratio: 3 / 4;
+  width: 100%;
+  max-width: 260px;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  overflow: hidden;
+}
+
+.doctor-card__image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.doctor-card__content {
+  min-width: 0;
+}
+
+.doctor-card__intro {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin: 0 0 0.25rem;
+}
+
+.doctor-card__name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0 0 var(--space-xs);
+  letter-spacing: -0.02em;
+}
+
+.doctor-card__meta {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-md);
+}
+
+.doctor-card__bio {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-text);
+  margin: 0 0 var(--space-md);
+}
+
+.doctor-card__curriculum {
+  margin: var(--space-md) 0 var(--space-lg);
+}
+
+.doctor-card__curriculum-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 var(--space-sm);
+}
+
+.doctor-card__curriculum-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.doctor-card__curriculum-list li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  padding: var(--space-xs) 0;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.doctor-card__curriculum-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+}
+
+.doctor-card__cta {
+  display: inline-flex;
+}
