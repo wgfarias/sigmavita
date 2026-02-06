@@ -56,6 +56,16 @@
   position: relative;
 }
 
+.doctor-card__image {
+  display: block;
+  aspect-ratio: 3 / 4;
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
 .doctor-card__image-placeholder {
   aspect-ratio: 3 / 4;
   width: 100%;
