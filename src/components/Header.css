@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 1rem 1.5rem;
+  padding: 1rem var(--container-padding);
   transition:
     background-color 0.3s ease,
     box-shadow 0.3s ease,
@@ -26,7 +26,7 @@
 .header--scrolled {
   background-color: rgba(255, 255, 255, 0.98);
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.08);
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem var(--container-padding);
 }
 
 .header__inner {
@@ -214,8 +214,8 @@
 
 /* Dark mode: header ao rolar */
 [data-theme="dark"] .header--scrolled {
-  background-color: rgba(18, 18, 18, 0.98);
-  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.3);
+  background-color: rgba(45, 45, 48, 0.98);
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.25);
 }
 
 [data-theme="dark"] .header__mobile-nav {
@@ -289,7 +289,7 @@
 }
 
 .header__mobile-links {
-  padding: 1rem 1.5rem 1.5rem;
+  padding: 1rem var(--container-padding) 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;

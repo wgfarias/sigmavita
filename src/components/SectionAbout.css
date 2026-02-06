@@ -1,5 +1,6 @@
 .section-about {
   background-color: var(--color-bg);
+  overflow-x: hidden;
 }
 
 .section-about__layout {
@@ -7,6 +8,7 @@
   grid-template-columns: 1fr;
   gap: var(--space-xl);
   align-items: start;
+  min-width: 0;
 }
 
 @media (min-width: 900px) {
@@ -17,12 +19,15 @@
 
 .section-about__content {
   max-width: 680px;
+  min-width: 0;
 }
 
 /* Container com imagem de fundo (consultório) à direita */
 .section-about__image-wrap {
   position: relative;
   min-height: 280px;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .section-about__image-box {
@@ -32,6 +37,8 @@
   background-repeat: no-repeat;
   aspect-ratio: 4 / 3;
   min-height: 260px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .section-about__logo {

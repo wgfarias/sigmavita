@@ -49,23 +49,35 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Dark theme */
+/* Dark theme – chumbo escuro (evita preto intenso) */
 [data-theme="dark"] {
-  --color-text: #e8e8e8;
-  --color-text-muted: #a0aec0;
-  --color-bg: #121212;
-  --color-bg-alt: #1a1a1a;
-  --color-border: #2d2d2d;
-  --color-footer-bg: #0d0d0d;
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.5);
+  --color-text: #e4e4e4;
+  --color-text-muted: #9ca3af;
+  --color-bg: #2d2d30;
+  --color-bg-alt: #38383c;
+  --color-border: #4a4a4e;
+  --color-footer-bg: #222226;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+}
+
+/* Padding padrão no mobile: mesmo espaçamento lateral em todo o site */
+@media (max-width: 767px) {
+  :root {
+    --container-padding: 1rem;
+  }
 }
 
 a {
@@ -92,12 +104,26 @@ ul {
   margin-right: auto;
 }
 
+@media (max-width: 767px) {
+  .section {
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+  }
+}
+
 /* Inner container para seções com fundo em largura total (conteúdo continua centralizado) */
 .section__inner {
   max-width: var(--container-max);
   margin-left: auto;
   margin-right: auto;
   padding: var(--space-3xl) var(--container-padding);
+}
+
+@media (max-width: 767px) {
+  .section__inner {
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+  }
 }
 
 /* Buttons */
