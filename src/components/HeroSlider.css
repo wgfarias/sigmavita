@@ -44,7 +44,7 @@
   padding-right: var(--container-padding);
 }
 
-/* Camada de fundo (imagem) com zoom lento */
+/* Camada de fundo */
 .hero-slider__slide-bg {
   position: absolute;
   inset: 0;
@@ -53,22 +53,14 @@
 }
 
 .hero-slider__slide-bg-img {
+  display: block;
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  inset: -5%;
+  width: 110%;
+  height: 110%;
   object-fit: cover;
   object-position: center;
-  animation: hero-bg-zoom 50s ease-in-out infinite alternate;
-}
-
-@keyframes hero-bg-zoom {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.08);
-  }
+  transform-origin: center center;
 }
 
 /* Overlay em gradiente (teal da marca) para legibilidade do texto */
@@ -87,12 +79,73 @@
   pointer-events: none;
 }
 
+/* Blur em gradiente: mais desfocado onde está o texto, suave para a direita */
+.hero-slider__slide-blur {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  /* Máscara: blur visível à esquerda (lado do texto), some até ~60% */
+  mask-image: linear-gradient(
+    to right,
+    black 0%,
+    black 30%,
+    transparent 65%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    black 0%,
+    black 30%,
+    transparent 65%
+  );
+  pointer-events: none;
+  /* Pequeno fundo para o backdrop-filter ser aplicado em todos os browsers */
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Mobile: gradiente não vai até transparente, termina em ~40% para manter legibilidade */
+@media (max-width: 767px) {
+  .hero-slider__slide-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(0, 124, 124, 0.92) 0%,
+      rgba(0, 124, 124, 0.6) 50%,
+      rgba(0, 124, 124, 0.4) 100%
+    );
+  }
+
+  .hero-slider__slide-blur {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    mask-image: linear-gradient(
+      to right,
+      black 0%,
+      black 45%,
+      transparent 85%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      black 0%,
+      black 45%,
+      transparent 85%
+    );
+  }
+}
+
 /* Conteúdo alinhado à esquerda e embaixo */
 .hero-slider__slide-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   text-align: left;
   max-width: 560px;
+}
+
+.hero-slider__icon {
+  display: block;
+  width: 56px;
+  height: auto;
+  margin-bottom: var(--space-md);
 }
 
 .hero-slider__title {
@@ -147,4 +200,41 @@
   color: #fff;
   border-color: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Contador circular: tempo restante até o próximo slide – apenas desktop */
+.hero-slider__countdown {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hero-slider__countdown {
+    display: block;
+    position: absolute;
+    /* Alinha com o menu: mesma margem direita do container (max-width centralizado) */
+    right: max(var(--container-padding), calc((100vw - var(--container-max)) / 2 + var(--container-padding)));
+    /* Alinha na vertical com os botões: mesma altura do conteúdo do slide */
+    bottom: 6rem;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+  }
+
+  .hero-slider__countdown-svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+
+  .hero-slider__countdown-bg {
+    stroke: rgba(255, 255, 255, 0.25);
+    stroke-width: 2.5;
+  }
+
+  .hero-slider__countdown-fill {
+    stroke: rgba(255, 255, 255, 0.9);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.1s linear;
+  }
 }

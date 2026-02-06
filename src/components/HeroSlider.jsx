@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import { animate, splitText, stagger, set } from "animejs";
@@ -17,8 +17,7 @@ const slides = [
     subtitle:
       "Consultas particulares em Gastroenterologia, Cardiologia e Pneumologia, com atendimento humanizado, tempo dedicado ao paciente e excelência médica.",
     color: "#007c7c",
-    backgroundImage:
-      "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=1920&q=80",
+    backgroundImage: "/slide1.webp",
   },
   {
     id: 2,
@@ -27,7 +26,7 @@ const slides = [
       "Cuidado personalizado e tempo dedicado para quem busca qualidade superior em saúde.",
     color: "#006666",
     backgroundImage:
-      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1920&q=80",
+      "https://samhoustonheart.com/wp-content/uploads/2024/05/AdobeStock_620126328-1024x683.jpeg",
   },
   {
     id: 3,
@@ -36,10 +35,11 @@ const slides = [
       "Exames diagnósticos de excelência e ambiente premium no Centro Médico Julio Adnet.",
     color: "#007c7c",
     backgroundImage:
-      "https://images.pexels.com/photos/6129040/pexels-photo-6129040.jpeg?auto=compress&cs=tinysrgb&w=1920",
+      "https://image.marriage.com/advice/wp-content/uploads/2019/07/3-Ways-to-Build-a-Strong-Foundation-for-a-Healthy-Family.jpg",
   },
 ];
 
+const AUTOPLAY_DELAY_MS = 7000;
 const CHAR_STAGGER = 45;
 const TITLE_DURATION = 400;
 const SUBTITLE_FADE_DURATION = 1000;
@@ -117,8 +117,28 @@ function animateSlideContent(swiper) {
 }
 
 export default function HeroSlider() {
-  const onSwiper = (swiper) => animateSlideContent(swiper);
-  const onSlideChange = (swiper) => animateSlideContent(swiper);
+  const [timeLeft, setTimeLeft] = useState(AUTOPLAY_DELAY_MS);
+  const intervalRef = useRef(null);
+
+  const resetCountdown = () => setTimeLeft(AUTOPLAY_DELAY_MS);
+
+  useEffect(() => {
+    intervalRef.current = setInterval(() => {
+      setTimeLeft((prev) => Math.max(0, prev - 100));
+    }, 100);
+    return () => clearInterval(intervalRef.current);
+  }, []);
+
+  const onSwiper = (swiper) => {
+    resetCountdown();
+    animateSlideContent(swiper);
+  };
+  const onSlideChange = (swiper) => {
+    resetCountdown();
+    animateSlideContent(swiper);
+  };
+
+  const progress = timeLeft / AUTOPLAY_DELAY_MS;
 
   return (
     <section id="inicio" className="hero">
@@ -132,7 +152,7 @@ export default function HeroSlider() {
           clickable: false,
         }}
         autoplay={{
-          delay: 7000,
+          delay: AUTOPLAY_DELAY_MS,
           disableOnInteraction: false,
         }}
         loop={true}
@@ -152,12 +172,36 @@ export default function HeroSlider() {
                     src={slide.backgroundImage}
                     alt=""
                     className="hero-slider__slide-bg-img"
+                    ref={(el) => {
+                      if (el && !el.dataset.animated) {
+                        el.dataset.animated = "1";
+                        el.animate(
+                          [
+                            { transform: "scale(1)" },
+                            { transform: "scale(1.15)" },
+                          ],
+                          {
+                            duration: 20000,
+                            iterations: Infinity,
+                            direction: "alternate",
+                            easing: "ease-in-out",
+                          }
+                        );
+                      }
+                    }}
                   />
                 </div>
               )}
               <div className="hero-slider__slide-overlay" aria-hidden />
+              <div className="hero-slider__slide-blur" aria-hidden />
               <div className="hero-slider__slide-inner">
                 <div className="hero-slider__slide-content">
+                  <img
+                    src="/icon_slide.webp"
+                    alt=""
+                    className="hero-slider__icon"
+                    aria-hidden
+                  />
                   <h2 className="hero-slider__title">{slide.title}</h2>
                   <p className="hero-slider__subtitle">{slide.subtitle}</p>
                   <div className="hero-slider__ctas">
@@ -182,6 +226,26 @@ export default function HeroSlider() {
           </SwiperSlide>
         ))}
       </Swiper>
+      <div className="hero-slider__countdown" aria-hidden>
+        <svg className="hero-slider__countdown-svg" viewBox="0 0 36 36">
+          <circle
+            className="hero-slider__countdown-bg"
+            cx="18"
+            cy="18"
+            r="15.9"
+            fill="none"
+          />
+          <circle
+            className="hero-slider__countdown-fill"
+            cx="18"
+            cy="18"
+            r="15.9"
+            fill="none"
+            strokeDasharray={100}
+            strokeDashoffset={100 - progress * 100}
+          />
+        </svg>
+      </div>
     </section>
   );
 }
