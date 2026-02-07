@@ -35,7 +35,7 @@ const slides = [
       "Exames diagnósticos de excelência e ambiente premium no Centro Médico Julio Adnet.",
     color: "#007c7c",
     backgroundImage:
-      "https://image.marriage.com/advice/wp-content/uploads/2019/07/3-Ways-to-Build-a-Strong-Foundation-for-a-Healthy-Family.jpg",
+      "https://www.pixelstalk.net/wp-content/uploads/images6/Family-Wallpaper-HD.jpg",
   },
 ];
 
@@ -185,7 +185,7 @@ export default function HeroSlider() {
                             iterations: Infinity,
                             direction: "alternate",
                             easing: "ease-in-out",
-                          }
+                          },
                         );
                       }
                     }}
