@@ -32,9 +32,9 @@
   justify-content: flex-start;
   min-height: 100vh;
   min-height: 100dvh; /* iPhone: evita altura variando com barra de endereço */
-  padding: 4rem 0 6rem;
-  /* iPhone: CTAs não cortam – respeita notch e home indicator */
-  padding-bottom: max(6rem, env(safe-area-inset-bottom, 0px) + 4.5rem);
+  padding: 1.5rem 0 0;
+  /* Conteúdo colado ao bottom; espaço só embaixo (CTAs + safe area no iPhone) */
+  padding-bottom: max(4rem, env(safe-area-inset-bottom, 0px) + 3rem);
   color: #fff;
   overflow: hidden;
   /* Evita flicker do overlay no iOS/Chrome mobile durante o swipe */
