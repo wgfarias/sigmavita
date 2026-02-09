@@ -196,12 +196,6 @@ export default function HeroSlider() {
               <div className="hero-slider__slide-blur" aria-hidden />
               <div className="hero-slider__slide-inner">
                 <div className="hero-slider__slide-content">
-                  <img
-                    src="/icon_slide.webp"
-                    alt=""
-                    className="hero-slider__icon"
-                    aria-hidden
-                  />
                   <h2 className="hero-slider__title">{slide.title}</h2>
                   <p className="hero-slider__subtitle">{slide.subtitle}</p>
                   <div className="hero-slider__ctas">

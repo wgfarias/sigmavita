@@ -100,12 +100,7 @@
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   /* Máscara: blur visível à esquerda (lado do texto), some até ~60% */
-  mask-image: linear-gradient(
-    to right,
-    black 0%,
-    black 30%,
-    transparent 65%
-  );
+  mask-image: linear-gradient(to right, black 0%, black 30%, transparent 65%);
   -webkit-mask-image: linear-gradient(
     to right,
     black 0%,
@@ -156,26 +151,28 @@
   max-width: 560px;
 }
 
-.hero-slider__icon {
-  display: block;
-  width: 56px;
-  height: auto;
-  margin-bottom: var(--space-md);
-}
-
+/* Tipografia elástica: escala de forma fluida em todos os dispositivos móveis.
+   Fórmulas com vw + rem garantem tamanho mínimo legível e crescimento suave. */
 .hero-slider__title {
   margin: 0 0 0.75rem;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  /* Mín ~1.5rem (24px), cresce com viewport, máx 3.5rem. Em ~320px ≈ 28px, em 430px ≈ 32px. */
+  font-size: clamp(1.5rem, 4.5vw + 1.25rem, 3.5rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 .hero-slider__subtitle {
   margin: 0 0 var(--space-lg);
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  /* Mín ~0.9375rem (15px), cresce com viewport, máx 1.25rem. Legível em qualquer mobile. */
+  font-size: clamp(0.9375rem, 2.2vw + 0.7rem, 1.25rem);
   font-weight: 400;
   opacity: 0.95;
+  line-height: 1.45;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 .hero-slider__ctas {
@@ -227,7 +224,10 @@
     display: block;
     position: absolute;
     /* Alinha com o menu: mesma margem direita do container (max-width centralizado) */
-    right: max(var(--container-padding), calc((100vw - var(--container-max)) / 2 + var(--container-padding)));
+    right: max(
+      var(--container-padding),
+      calc((100vw - var(--container-max)) / 2 + var(--container-padding))
+    );
     /* Alinha na vertical com os botões: mesma altura do conteúdo do slide */
     bottom: 6rem;
     z-index: 10;
