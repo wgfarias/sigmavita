@@ -2,12 +2,14 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
+  min-height: 100dvh; /* iPhone: altura estável (ignora barra de endereço) */
   overflow: hidden;
 }
 
 .hero-slider {
   width: 100%;
   height: 100vh;
+  height: 100dvh;
 }
 
 .hero-slider .swiper-pagination {
@@ -29,7 +31,10 @@
   align-items: flex-end;
   justify-content: flex-start;
   min-height: 100vh;
+  min-height: 100dvh; /* iPhone: evita altura variando com barra de endereço */
   padding: 4rem 0 6rem;
+  /* iPhone: CTAs não cortam – respeita notch e home indicator */
+  padding-bottom: max(6rem, env(safe-area-inset-bottom, 0px) + 4.5rem);
   color: #fff;
   overflow: hidden;
   /* Evita flicker do overlay no iOS/Chrome mobile durante o swipe */
@@ -61,6 +66,12 @@
   -webkit-transform: translateZ(0);
 }
 
+/* Zoom suave via CSS (GPU) – evita travamento no iPhone vs. animação JS */
+@keyframes hero-slider-bg-zoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.15); }
+}
+
 .hero-slider__slide-bg-img {
   display: block;
   position: absolute;
@@ -70,6 +81,10 @@
   object-fit: cover;
   object-position: center;
   transform-origin: center center;
+  will-change: transform;
+  animation: hero-slider-bg-zoom 20s ease-in-out infinite alternate;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* Overlay em gradiente (teal da marca) para legibilidade do texto */
@@ -117,7 +132,8 @@
 }
 
 /* Mobile: gradiente não vai até transparente, termina em ~40% para manter legibilidade.
-   Sem backdrop-filter no blur para evitar flicker/tilt no iOS e Chrome mobile. */
+   Sem backdrop-filter no blur para evitar flicker/tilt no iOS e Chrome mobile.
+   Mais espaço embaixo para os CTAs não cortarem (safe area já aplicada no slide). */
 @media (max-width: 767px) {
   .hero-slider__slide-overlay {
     background: linear-gradient(
@@ -141,6 +157,26 @@
     mask-image: none;
     -webkit-mask-image: none;
   }
+
+  /* Garante espaço para os dois botões + barra de progresso no iPhone */
+  .hero-slider__slide-content {
+    padding-bottom: 0.5rem;
+  }
+
+  .hero-slider__ctas {
+    gap: 0.75rem;
+  }
+
+  /* Zoom mais leve no mobile (scale 1.08, 22s): mais fluido no iPhone, menos carga na GPU */
+  .hero-slider__slide-bg-img {
+    animation-name: hero-slider-bg-zoom-mobile;
+    animation-duration: 22s;
+  }
+}
+
+@keyframes hero-slider-bg-zoom-mobile {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
 }
 
 /* Conteúdo alinhado à esquerda e embaixo */

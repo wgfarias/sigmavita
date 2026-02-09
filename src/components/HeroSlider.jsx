@@ -172,23 +172,6 @@ export default function HeroSlider() {
                     src={slide.backgroundImage}
                     alt=""
                     className="hero-slider__slide-bg-img"
-                    ref={(el) => {
-                      if (el && !el.dataset.animated) {
-                        el.dataset.animated = "1";
-                        el.animate(
-                          [
-                            { transform: "scale(1)" },
-                            { transform: "scale(1.15)" },
-                          ],
-                          {
-                            duration: 20000,
-                            iterations: Infinity,
-                            direction: "alternate",
-                            easing: "ease-in-out",
-                          },
-                        );
-                      }
-                    }}
                   />
                 </div>
               )}
