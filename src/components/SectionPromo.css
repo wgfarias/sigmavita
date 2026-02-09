@@ -134,6 +134,7 @@
 @media (max-width: 767px) {
   .section-promo__content {
     max-width: min(100% - 2 * var(--container-padding), 400px);
+    padding: var(--section-mobile-block, var(--space-2xl)) var(--container-padding);
   }
 
   .section-promo__title {

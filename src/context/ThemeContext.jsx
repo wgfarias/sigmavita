@@ -5,10 +5,6 @@ const ThemeContext = createContext(null);
 const STORAGE_KEY = "sigmavita-theme";
 
 function getInitialTheme() {
-  if (typeof window === "undefined") return "light";
-  const stored = localStorage.getItem(STORAGE_KEY);
-  if (stored === "dark" || stored === "light") return stored;
-  if (window.matchMedia?.("(prefers-color-scheme: dark)").matches) return "dark";
   return "light";
 }
 

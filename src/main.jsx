@@ -5,11 +5,7 @@ import { ThemeProvider } from "./context/ThemeContext.jsx";
 import "./index.css";
 
 (function setInitialTheme() {
-  const stored = localStorage.getItem("sigmavita-theme");
-  const theme = stored === "dark" || stored === "light"
-    ? stored
-    : (typeof window !== "undefined" && window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-  document.documentElement.setAttribute("data-theme", theme);
+  document.documentElement.setAttribute("data-theme", "light");
 })();
 
 createRoot(document.getElementById("root")).render(

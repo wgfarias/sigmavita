@@ -1,7 +1,7 @@
 import "./SectionDoctors.css";
 
 const WHATSAPP_URL =
-  "https://wa.me/5561999999999?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta.";
+  "https://wa.me/5561996994099?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta.";
 
 const doctors = [
   {
@@ -66,7 +66,6 @@ export default function SectionDoctors() {
               )}
             </div>
             <div className="doctor-card__content">
-              <p className="doctor-card__intro">Prazer,</p>
               <h3 className="doctor-card__name">Dr. {doctor.name}</h3>
               <p className="doctor-card__meta">
                 {doctor.specialty} · {doctor.crm} | {doctor.rqe}

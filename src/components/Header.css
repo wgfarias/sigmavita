@@ -94,36 +94,7 @@
 }
 
 .header--scrolled .header__link:hover {
-  color: var(--color-primary);
-}
-
-.header__theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  border: none;
-  border-radius: var(--radius-md);
-  background: transparent;
-  color: rgba(255, 255, 255, 0.95);
-  cursor: pointer;
-  transition: color 0.2s ease, background-color 0.2s ease;
-}
-
-.header__theme-toggle:hover {
-  color: #fff;
-  background-color: rgba(255, 255, 255, 0.12);
-}
-
-.header--scrolled .header__theme-toggle {
   color: var(--color-text);
-}
-
-.header--scrolled .header__theme-toggle:hover {
-  background-color: rgba(0, 0, 0, 0.06);
-  color: var(--color-primary);
 }
 
 .header__cta {
@@ -191,49 +162,6 @@
   }
 }
 
-/* Theme toggle no menu mobile */
-.header__theme-toggle--mobile {
-  width: 100%;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1rem;
-  margin-bottom: 0.25rem;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--color-text);
-}
-
-.header__theme-toggle--mobile:hover {
-  background-color: rgba(0, 0, 0, 0.06);
-  color: var(--color-primary);
-}
-
-[data-theme="dark"] .header__theme-toggle--mobile:hover {
-  background-color: rgba(255, 255, 255, 0.08);
-}
-
-/* Dark mode: header ao rolar */
-[data-theme="dark"] .header--scrolled {
-  background-color: rgba(45, 45, 48, 0.98);
-  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.25);
-}
-
-[data-theme="dark"] .header__mobile-nav {
-  background: var(--color-bg);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-}
-
-[data-theme="dark"] .header__mobile-link:hover {
-  background-color: rgba(255, 255, 255, 0.06);
-}
-
-[data-theme="dark"] .header--scrolled .header__burger::before {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-[data-theme="dark"] .header--scrolled .header__burger:hover::before {
-  background: rgba(255, 255, 255, 0.12);
-}
 
 .header__burger:hover {
   background-color: rgba(255, 255, 255, 0.1);
@@ -295,9 +223,10 @@
   gap: 0.25rem;
 }
 
+/* Só o texto recuado; o fundo/hover do link vai de ponta a ponta */
 .header__mobile-link {
   display: block;
-  padding: 0.75rem 0;
+  padding: 0.75rem 0 0.75rem 2rem;
   font-size: 1rem;
   font-weight: 500;
   color: var(--color-text);
@@ -309,7 +238,7 @@
 
 .header__mobile-link:hover {
   background-color: rgba(0, 0, 0, 0.04);
-  color: var(--color-primary);
+  color: var(--color-text);
 }
 
 @media (min-width: 768px) {

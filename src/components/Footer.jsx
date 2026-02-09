@@ -1,7 +1,7 @@
 import "./Footer.css";
 
 const WHATSAPP_URL =
-  "https://wa.me/5561999999999?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta.";
+  "https://wa.me/5561996994099?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta.";
 
 const footerLinks = [
   { label: "A Clínica", href: "#a-clinica" },

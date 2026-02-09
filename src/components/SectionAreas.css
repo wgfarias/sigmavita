@@ -84,14 +84,15 @@
 .area-card__link {
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--color-primary);
+  color: var(--color-text);
   display: inline-flex;
   align-items: center;
   transition: color 0.2s ease;
 }
 
 .area-card__link:hover {
-  color: var(--color-primary-dark);
+  color: var(--color-text);
+  opacity: 0.85;
 }
 
 .area-card__link::after {

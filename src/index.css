@@ -8,8 +8,8 @@
   /* Design system – Sigmavita */
   --color-primary: #007c7c;
   --color-primary-dark: #006666;
-  --color-text: #1a1a1a;
-  --color-text-muted: #4a5568;
+  --color-text: #000000;
+  --color-text-muted: #333333;
   --color-bg: #ffffff;
   --color-bg-alt: #f7fafc;
   --color-border: #e2e8f0;
@@ -74,10 +74,11 @@ body {
   min-height: 100vh;
 }
 
-/* Padding padrão no mobile: mesmo espaçamento lateral em todo o site */
+/* Padding padrão no mobile: mesmo espaçamento lateral e vertical em todo o site */
 @media (max-width: 767px) {
   :root {
     --container-padding: 1rem;
+    --section-mobile-block: var(--space-2xl); /* topo e bottom das seções no mobile */
   }
 }
 
@@ -105,10 +106,10 @@ ul {
   margin-right: auto;
 }
 
+/* Mobile: um único padrão de padding para todas as seções (laterais + topo + bottom) */
 @media (max-width: 767px) {
   .section {
-    padding-left: var(--container-padding);
-    padding-right: var(--container-padding);
+    padding: var(--section-mobile-block, var(--space-2xl)) var(--container-padding);
   }
 }
 
@@ -120,10 +121,10 @@ ul {
   padding: var(--space-3xl) var(--container-padding);
 }
 
+/* Mobile: não duplicar padding; o .section já define todo o espaçamento */
 @media (max-width: 767px) {
   .section__inner {
-    padding-left: var(--container-padding);
-    padding-right: var(--container-padding);
+    padding: 0;
   }
 }
 
@@ -159,12 +160,12 @@ ul {
 
 .btn--secondary {
   background-color: transparent;
-  color: var(--color-primary);
-  border-color: var(--color-primary);
+  color: var(--color-text);
+  border-color: var(--color-text);
 }
 
 .btn--secondary:hover {
-  background-color: var(--color-primary);
+  background-color: var(--color-text);
   color: var(--color-white);
 }
 
@@ -210,5 +211,5 @@ h1, h2, h3, h4,
 }
 
 .section-title strong {
-  color: var(--color-primary);
+  color: var(--color-text);
 }

@@ -4,7 +4,6 @@ const examCategories = [
   {
     id: "gastro",
     title: "Gastroenterologia",
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80",
     items: [
       "Elastografia Hepática Transitória (FibroScan)",
       "Ecografia de Abdome Total",
@@ -15,7 +14,6 @@ const examCategories = [
   {
     id: "cardio",
     title: "Cardiologia",
-    image: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80",
     items: [
       "Eletrocardiograma (ECG)",
       "Ecocardiograma",
@@ -26,7 +24,6 @@ const examCategories = [
   {
     id: "geral",
     title: "Estrutura diagnóstica",
-    image: "https://images.pexels.com/photos/6129040/pexels-photo-6129040.jpeg?auto=compress&w=800",
     items: [
       "Tecnologia de ponta para exames diagnósticos",
       "Ambiente equipado e acolhedor",
@@ -45,13 +42,7 @@ export default function SectionExams() {
       <div className="section-exams__grid">
         {examCategories.map((category) => (
           <div key={category.id} className="exam-category">
-            <div
-              className="exam-category__header"
-              style={{ backgroundImage: category.image ? `url(${category.image})` : undefined }}
-            >
-              <h3 className="exam-category__title">{category.title}</h3>
-            </div>
-            <div className="exam-category__body">
+            <h3 className="exam-category__title">{category.title}</h3>
             <ul className="exam-category__list">
               {category.items.map((item, index) => (
                 <li key={index} className="exam-category__item">
@@ -59,7 +50,6 @@ export default function SectionExams() {
                 </li>
               ))}
             </ul>
-            </div>
           </div>
         ))}
       </div>

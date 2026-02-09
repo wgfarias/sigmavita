@@ -1,8 +1,8 @@
 import "./SectionContact.css";
 
 const WHATSAPP_URL =
-  "https://wa.me/5561999999999?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta.";
-const PHONE = "(61) 99999-9999";
+  "https://wa.me/5561996994099?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta.";
+const PHONE = "(61) 99699-4099";
 const ADDRESS = "Centro Médico Julio Adnet, Asa Sul, Brasília/DF";
 const MAPS_URL =
   "https://maps.google.com/?q=Centro+Médico+Julio+Adnet+Asa+Sul+Brasília";

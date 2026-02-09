@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
-import { Sun, Moon } from "lucide-react";
-import { useTheme } from "../context/ThemeContext";
 import "./Header.css";
 
 const WHATSAPP_URL =
-  "https://wa.me/5561999999999?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta.";
+  "https://wa.me/5561996994099?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta.";
 
 const navLinks = [
   { label: "A Clínica", href: "#a-clinica" },
@@ -18,7 +16,6 @@ const navLinks = [
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const { isDark, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,17 +57,6 @@ export default function Header() {
               </li>
             ))}
             <li>
-              <button
-                type="button"
-                className="header__theme-toggle"
-                onClick={toggleTheme}
-                aria-label={isDark ? "Ativar tema claro" : "Ativar tema escuro"}
-                title={isDark ? "Tema claro" : "Tema escuro"}
-              >
-                {isDark ? <Sun size={20} strokeWidth={1.75} /> : <Moon size={20} strokeWidth={1.75} />}
-              </button>
-            </li>
-            <li>
               <a
                 href={WHATSAPP_URL}
                 className="header__cta btn btn--primary"
@@ -109,17 +95,6 @@ export default function Header() {
               </a>
             </li>
           ))}
-          <li>
-            <button
-              type="button"
-              className="header__theme-toggle header__theme-toggle--mobile"
-              onClick={() => { toggleTheme(); setMenuOpen(false); }}
-              aria-label={isDark ? "Ativar tema claro" : "Ativar tema escuro"}
-            >
-              {isDark ? <Sun size={22} /> : <Moon size={22} />}
-              <span>{isDark ? "Tema claro" : "Tema escuro"}</span>
-            </button>
-          </li>
           <li>
             <a
               href={WHATSAPP_URL}

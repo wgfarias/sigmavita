@@ -1,25 +1,23 @@
 import "./SectionSpecialties.css";
-import { Pill, Heart, Wind } from "lucide-react";
-
 const specialties = [
   {
     id: "gastro",
     title: "Gastroenterologia",
-    icon: Pill,
+    image: "/serv1.webp",
     description:
       "Atendimento especializado em doenças do aparelho digestivo, com destaque para avaliação hepática não invasiva (FibroScan), ecografia de abdome e endoscopia digestiva.",
   },
   {
     id: "cardio",
     title: "Cardiologia",
-    icon: Heart,
+    image: "/serv2.webp",
     description:
       "Prevenção cardiovascular, cardiologia do esporte, avaliação de risco e check-up cardíaco, com orientação clara e acompanhamento individualizado.",
   },
   {
     id: "pneumo",
     title: "Pneumologia",
-    icon: Wind,
+    image: "/serv3.webp",
     description:
       "Atendimento em Pneumologia com a mesma excelência e estrutura da Sigmavita, para avaliação e acompanhamento das doenças respiratórias.",
   },
@@ -34,18 +32,24 @@ export default function SectionSpecialties() {
         Nossas <strong>Especialidades</strong>
       </h2>
       <div className="section-specialties__grid">
-        {specialties.map((item) => {
-          const Icon = item.icon;
-          return (
+        {specialties.map((item) => (
           <article key={item.id} className="specialty-card">
             <div className="specialty-card__icon-wrap">
-              <Icon className="specialty-card__icon" size={48} strokeWidth={1.75} aria-hidden />
+              {item.image && (
+                <img
+                  src={item.image}
+                  alt=""
+                  className="specialty-card__icon specialty-card__icon--img"
+                  width={48}
+                  height={48}
+                  loading="lazy"
+                />
+              )}
             </div>
             <h3 className="specialty-card__title">{item.title}</h3>
             <p className="specialty-card__text">{item.description}</p>
           </article>
-          );
-        })}
+        ))}
       </div>
       </div>
     </section>

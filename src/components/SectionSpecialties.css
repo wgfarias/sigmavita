@@ -5,7 +5,6 @@
 .section-specialties.section {
   width: 100%;
   max-width: none;
-  padding: 0;
   overflow-x: hidden;
 }
 
@@ -42,6 +41,10 @@
   width: 48px;
   height: 48px;
   color: var(--color-primary);
+}
+
+.specialty-card__icon--img {
+  object-fit: contain;
 }
 
 .specialty-card__title {

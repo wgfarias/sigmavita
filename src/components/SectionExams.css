@@ -5,7 +5,6 @@
 .section-exams.section {
   width: 100%;
   max-width: none;
-  padding: 0;
   overflow-x: hidden;
 }
 
@@ -27,8 +26,8 @@
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
   border: 1px solid var(--color-border);
-  overflow: hidden;
-  transition: box-shadow 0.25s ease, transform 0.2s ease;
+  padding: var(--space-lg);
+  transition: box-shadow 0.25s ease;
   min-width: 0;
 }
 
@@ -36,39 +35,12 @@
   box-shadow: var(--shadow-lg);
 }
 
-.exam-category__header {
-  height: 140px;
-  background-color: var(--color-primary);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-}
-
-.exam-category__header::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 124, 124, 0.65);
-  pointer-events: none;
-}
-
 .exam-category__title {
-  position: absolute;
-  left: var(--space-md);
-  bottom: var(--space-md);
-  right: var(--space-md);
-  margin: 0;
-  font-size: 1.5rem;
+  margin: 0 0 var(--space-md);
+  font-size: 1.25rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--color-primary);
   letter-spacing: -0.02em;
-  z-index: 1;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
-}
-
-.exam-category__body {
-  padding: var(--space-md);
 }
 
 .exam-category__list {

@@ -116,7 +116,7 @@
 .doctor-card__name {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-text);
   margin: 0 0 var(--space-xs);
   letter-spacing: -0.02em;
 }
@@ -164,7 +164,7 @@
   content: "•";
   position: absolute;
   left: 0;
-  color: var(--color-primary);
+  color: var(--color-text);
 }
 
 .doctor-card__cta {
