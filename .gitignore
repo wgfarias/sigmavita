@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Arquivos extras / assets pesados (ex.: PSD)
+.extras/

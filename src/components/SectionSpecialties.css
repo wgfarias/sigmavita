@@ -8,6 +8,17 @@
   overflow-x: hidden;
 }
 
+@media (min-width: 768px) {
+  .section-specialties.section {
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+  }
+  .section-specialties .section__inner {
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-md);
+  }
+}
+
 .section-specialties__grid {
   display: grid;
   gap: var(--space-lg);

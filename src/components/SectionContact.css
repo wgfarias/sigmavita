@@ -8,6 +8,17 @@
   overflow-x: hidden;
 }
 
+@media (min-width: 768px) {
+  .section-contact.section {
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+  }
+  .section-contact .section__inner {
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-md);
+  }
+}
+
 .section-contact__grid {
   display: grid;
   grid-template-columns: 1fr;

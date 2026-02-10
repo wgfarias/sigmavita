@@ -8,7 +8,7 @@ export default function SectionAbout() {
     <section id="a-clinica" className="section-about section">
       <span className="eyebrow">A clínica</span>
       <h2 className="section-title">
-        Sigmavita
+        <strong>Sigmavita</strong>
       </h2>
       <div className="section-about__layout">
         <div className="section-about__content">

@@ -6,6 +6,17 @@
   overflow-x: hidden;
 }
 
+@media (min-width: 768px) {
+  .section-areas.section {
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+  }
+  .section-areas .section__inner {
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-md);
+  }
+}
+
 .section-areas__grid {
   display: grid;
   gap: var(--space-lg);

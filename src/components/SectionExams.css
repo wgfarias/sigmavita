@@ -8,6 +8,17 @@
   overflow-x: hidden;
 }
 
+@media (min-width: 768px) {
+  .section-exams.section {
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+  }
+  .section-exams .section__inner {
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-md);
+  }
+}
+
 .section-exams__grid {
   display: grid;
   gap: var(--space-xl);

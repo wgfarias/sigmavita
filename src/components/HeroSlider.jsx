@@ -20,20 +20,20 @@ const slides = [
     backgroundImage: "/slide0.webp",
   },
   {
-    id: 2,
-    title: "Medicina de alto padrão na Asa Sul",
-    subtitle:
-      "Consultas particulares em Gastroenterologia, Cardiologia e Pneumologia, com atendimento humanizado, tempo dedicado ao paciente e excelência médica.",
-    color: "#007c7c",
-    backgroundImage: "/slide1.webp",
-  },
-  {
     id: 3,
     title: "Estrutura sofisticada e tecnologia de ponta",
     subtitle:
       "Exames diagnósticos de excelência e ambiente premium no Centro Médico Julio Adnet.",
     color: "#007c7c",
     backgroundImage: "/slide2.webp",
+  },
+  {
+    id: 2,
+    title: "Medicina de alto padrão na Asa Sul",
+    subtitle:
+      "Consultas particulares em Gastroenterologia, Cardiologia e Pneumologia, com atendimento humanizado, tempo dedicado ao paciente e excelência médica.",
+    color: "#007c7c",
+    backgroundImage: "/slide1.webp",
   },
 ];
 

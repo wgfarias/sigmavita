@@ -8,6 +8,7 @@
   /* Design system – Sigmavita */
   --color-primary: #007c7c;
   --color-primary-dark: #006666;
+  --color-primary-light: #009a9a;
   --color-text: #000000;
   --color-text-muted: #333333;
   --color-bg: #ffffff;
@@ -210,6 +211,15 @@ h1, h2, h3, h4,
   margin: 0 0 var(--space-lg);
 }
 
+/* Palavras em destaque nos títulos: gradiente suave com a paleta primária */
 .section-title strong {
-  color: var(--color-text);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-dark) 0%,
+    var(--color-primary) 45%,
+    var(--color-primary-light) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }

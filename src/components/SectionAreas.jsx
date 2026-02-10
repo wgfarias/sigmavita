@@ -4,7 +4,7 @@ const areas = [
   {
     id: "hepatica",
     title: "Avaliação hepática",
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80",
+    image: "/atua1.webp",
     description:
       "Elastografia Hepática Transitória (FibroScan) e ecografia de abdome para avaliação não invasiva de doenças hepáticas e do aparelho digestivo.",
     href: "#exames",
@@ -12,7 +12,7 @@ const areas = [
   {
     id: "endoscopia",
     title: "Endoscopia digestiva",
-    image: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80",
+    image: "/atua2.webp",
     description:
       "Procedimentos endoscópicos e técnicas avançadas para diagnóstico e acompanhamento, em estrutura de referência.",
     href: "#exames",
@@ -20,7 +20,7 @@ const areas = [
   {
     id: "prevencao-cardiovascular",
     title: "Prevenção cardiovascular",
-    image: "https://images.pexels.com/photos/6129040/pexels-photo-6129040.jpeg?auto=compress&w=800",
+    image: "/atua3.webp",
     description:
       "Avaliação de risco, check-up cardíaco e orientação para saúde do coração a longo prazo.",
     href: "#exames",
@@ -28,7 +28,7 @@ const areas = [
   {
     id: "cardiologia-esporte",
     title: "Cardiologia do esporte",
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80",
+    image: "/atua4.webp",
     description:
       "Avaliação e acompanhamento do atleta e de praticantes de atividade física, com foco em performance e segurança.",
     href: "#corpo-clinico",
@@ -36,7 +36,7 @@ const areas = [
   {
     id: "pneumologia",
     title: "Pneumologia",
-    image: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&q=80",
+    image: "/atua5.webp",
     description:
       "Avaliação e acompanhamento das doenças respiratórias com a mesma excelência e acolhimento da clínica.",
     href: "#especialidades",
